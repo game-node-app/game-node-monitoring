@@ -4,7 +4,7 @@ services:
     hostname: beszel
     restart: always
     volumes:
-      - beszel_data:/beszel_data
+      - beszel:/beszel_data
       - /var/run/beszel_socket:/beszel_socket
 
     networks:
