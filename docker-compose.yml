@@ -1,9 +1,8 @@
 services:
   beszel:
     image: henrygd/beszel:latest
-    container_name: beszel
     hostname: beszel
-    restart: unless-stopped
+    restart: always
     volumes:
       - beszel_data:/beszel_data
       - /var/run/beszel_socket:/beszel_socket
@@ -13,10 +12,9 @@ services:
 
   beszel-agent:
     image: henrygd/beszel-agent:latest
-    container_name: beszel-agent
     hostname: beszel-agent-1
-    restart: unless-stopped
     network_mode: host
+    restart: always
     volumes:
       - /var/run/beszel_socket:/beszel_socket
       - /var/run/docker.sock:/var/run/docker.sock:ro
